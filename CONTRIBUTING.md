@@ -121,6 +121,26 @@ For a persistent evidence file, run
 `node scripts/test-broker-security.mjs --report /absolute/path/report.json`.
 The report supplements the console evidence and does not change exit semantics.
 
+## Before you open a PR
+
+Review time is the bottleneck here, so a few ground rules keep it moving:
+
+- **One open PR at a time per contributor.** Further PRs from the same author
+  wait unreviewed until the current one is merged or closed. A tight series is
+  fine. Land it one PR at a time.
+- **Open an issue first** for anything that changes:
+  - the skill in `skills/`. It ships to every host (Claude, Codex,
+    Antigravity), so a change for one host changes default behaviour for all
+    of them.
+  - a security boundary: allowed path roots, permission or Full Disk Access
+    handling, or any check on what the server may read, write or send.
+
+  Agree the approach in the issue before writing the code.
+
+- **AI-assisted PRs are welcome, and you own the diff.** Green CI is not
+  evidence that a change is right. Say how you verified it against real data,
+  and keep each PR to one concern.
+
 ## Pull Request Process
 
 1. **Create a feature branch**
